@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
+
 import 'package:latihan_mobile/login_page.dart';
+import 'package:latihan_mobile/pages/kalkulator.dart';
 import 'package:latihan_mobile/register.dart';
 
 void main() {
@@ -11,8 +14,8 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Register()
+    return  GetMaterialApp(
+      home: Kalkulator(),
     );
   }
 }

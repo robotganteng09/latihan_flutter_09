@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:latihan_mobile/new_widget.dart';
 import 'package:latihan_mobile/register.dart';
+import 'package:latihan_mobile/widget/Costum_button.dart';
+import 'package:latihan_mobile/widget/costum_textfield.dart';
+import 'package:latihan_mobile/widget/judul.dart';
+import 'package:latihan_mobile/widget/nama.dart';
+import 'package:latihan_mobile/widget/password.dart';
 import 'package:latihan_mobile/widget/registsterbtn.dart';
 
 class LoginPage extends StatefulWidget {
@@ -24,84 +29,56 @@ class _Login extends State<LoginPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              "Welcome to our aplication",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-                color: Colors.amberAccent,
-              ),
-            ),
+           Container(child: Judul(text1: "welcome", warna1: Colors.amber),),
 
             Center(
               child: Container(child: Image.asset('assets/image/hindia.jpg')),
             ),
 
-            Text(
-              "Please fill username and password below",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-                color: Colors.amber,
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.only(top: 10, bottom: 10),
-              child: TextField(
-                controller: txtusername,
-                decoration: InputDecoration(
-                  hintText: "Username",
-                  border: OutlineInputBorder(),
-                ),
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.only(top: 10, bottom: 10),
-
-              child: TextField(
-                controller: txtpassword,
-                obscureText: true,
-                decoration: InputDecoration(
-                  hintText: "Password",
-                  border: OutlineInputBorder(),
-                ),
-              ),
-            ),
+           Judul(text1: "isi pw dulu mas", warna1: Colors.black),
+            Container(child: CostumTextfield(hintText: "nama", controller: txtusername,obscureText: false,)),
+            Container(child: CostumTextfield(hintText: "password", controller: txtpassword,obscureText: true,)),
             const SizedBox(height: 40),
 
             Container(
               width: double.infinity,
-              alignment: Alignment.center,
-              child: ElevatedButton(
-                onPressed: () {
-                  if (txtusername.text == "admin" &&
-                      txtpassword.text == "12345") {
-                    setState(() {
-                      statuslogin = "sukses login";
-                    });
-                  } else {
-                    setState(() {
-                      statuslogin = "gagal";
-                    });
-                  }
-                  print("status:" + statuslogin);
+              child: CostumButton(
+                text: "Login",
+                textColour: Colors.yellow,
+                onPressed: () => {
+                  if (txtusername.text == "Arsya" && txtpassword.text == "12345")
+                    {
+                      setState(() {
+                        statuslogin = "berhasil";
+                      }),
+                    }
+                  else
+                    {
+                      setState(() {
+                        statuslogin = "gagal";
+                      }),
+                    },
                 },
-                child: Text("Login"),
-                style: ElevatedButton.styleFrom(
-                  minimumSize: Size(double.infinity, 50),
-                ),
+              ),
+            ),
+
+            Container(
+              width: double.infinity,
+              
+              child: CostumButton(
+                text: "Register",
+                textColour: Colors.blue,
+                onPressed: () => {
+               Navigator.push(
+             context,
+             MaterialPageRoute(builder: (context) => const Register()),
+             )
+           },
               ),
             ),
 
             Text(statuslogin),
-            Registsterbtn(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Register()),
-                );
-              },
-            ),
+
             const SizedBox(height: 10),
           ],
         ),
