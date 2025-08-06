@@ -22,10 +22,12 @@ class Kalkulator extends StatelessWidget {
           CostumTextfield(
             hintText: "angka1",
             controller: kalkulatorController.txtangka1,
+            isNumber: true,
           ),
           CostumTextfield(
             hintText: "angka2",
             controller: kalkulatorController.txtangka2,
+            isNumber: true,
           ),
           Row(
             children: [

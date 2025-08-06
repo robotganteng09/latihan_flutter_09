@@ -36,8 +36,8 @@ class _Login extends State<LoginPage> {
             ),
 
            Judul(text1: "isi pw dulu mas", warna1: Colors.black),
-            Container(child: CostumTextfield(hintText: "nama", controller: txtusername,obscureText: false,)),
-            Container(child: CostumTextfield(hintText: "password", controller: txtpassword,obscureText: true,)),
+            Container(child: CostumTextfield(hintText: "nama", controller: txtusername,obscureText: false,isNumber: false,)),
+            Container(child: CostumTextfield(hintText: "password", controller: txtpassword,obscureText: true,isNumber: false,)),
             const SizedBox(height: 40),
 
             Container(
