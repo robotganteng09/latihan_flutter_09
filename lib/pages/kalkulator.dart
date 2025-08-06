@@ -17,19 +17,20 @@ class Kalkulator extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("kalkulator")),
-      body: Column(
-        children: [
-          CostumTextfield(
+      body: SingleChildScrollView(
+        padding: EdgeInsets.all(16),
+        child: Column(children: [CostumTextfield(
             hintText: "angka1",
             controller: kalkulatorController.txtangka1,
             isNumber: true,
           ),
-          CostumTextfield(
+           CostumTextfield(
             hintText: "angka2",
             controller: kalkulatorController.txtangka2,
             isNumber: true,
           ),
-          Row(
+          
+            Row(
             children: [
               CostumButton(
                 text: '+',
@@ -39,7 +40,8 @@ class Kalkulator extends StatelessWidget {
               CostumButton(text: "-", textColour: Colors.amberAccent, onPressed: kalkulatorController.kurang),
             ],
           ),
-          Row(
+
+            Row(
             children: [
               CostumButton(
                 text: "x",
@@ -53,11 +55,18 @@ class Kalkulator extends StatelessWidget {
               ),
             ],
           ),
-          Obx(() {
+         Obx(() {
             return Text("hasil" + kalkulatorController.textHasil.value);
           }),
           CostumButton(text: "c", textColour: Colors.amberAccent, onPressed: kalkulatorController.reset),
-        ],
+          
+          ],)
+          
+         
+        
+        
+          
+        
       ),
     );
   }
