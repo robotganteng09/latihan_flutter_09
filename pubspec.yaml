@@ -21,3 +21,7 @@ flutter:
   uses-material-design: true
   assets:
   - assets\image\hindia.jpg
+  - assets\image\mbappe.jpeg
+  - assets\image\bellingham.jpg
+  - assets\image\vini.jpeg
+  - assets\image\vazques.jpeg
