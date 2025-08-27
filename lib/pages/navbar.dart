@@ -10,16 +10,13 @@ import 'package:latihan_mobile/pages/profilePage.dart';
 class NavbarPage extends StatelessWidget {
   NavbarPage({super.key});
 
-  final NavController navC = Get.find();
-
-
-  final List<Widget> pages = [Kalkulator(), Footballplayer(),Profilepage()];
+   NavController navC = Get.put(NavController());
 
   @override
   Widget build(BuildContext context) {
     return Obx(
       () => Scaffold(
-        body: pages[navC.selectedIndex.value], 
+        body: navC.pages[navC.selectedIndex.value], 
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: navC.selectedIndex.value,
           onTap: navC.changeIndex, 
